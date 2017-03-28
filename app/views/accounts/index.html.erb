@@ -1,0 +1,24 @@
+<header>
+    <h1>Loot</h1>
+    <%= form_for @account do |f| %>
+        <p>
+            <%= f.label :username %><br>
+            <%= f.text_field :username %>
+        </p>
+     
+        <p>
+            <%= f.label :password %><br>
+            <%= f.text_field :password %>
+        </p>
+     
+        <p>
+            <%= f.submit %>
+        </p>
+    <% end %>
+</header>
+<body>
+    
+    <p>OR</p>
+    
+    <%= link_to accounts_path %>
+</body>
