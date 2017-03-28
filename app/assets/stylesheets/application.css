@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+body{
+    padding:1%;
+    background-color:white;
+}
+header{
+    background-color: white
+}
+header h1{
+    font-family:Comfortaa;
+    margin-top:0;
+    font-size:75px;
+}
+main{
+    font-family: serif;
+    border-radius: 25px;
+    margin:auto;
+    margin-top: 10px;
+    width:100%;
+    background-color:green;
+    padding-bottom: 25px;
+}
