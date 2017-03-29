@@ -14,11 +14,14 @@
  *= require_self
  */
 body{
-    padding:1%;
-    background-color:white;
-}
-header{
-    background-color: white
+    width:100%;
+    position:fixed;
+    background-size:100%;
+    background-color:green;
+    background: -webkit-linear-gradient(#2ED225, green); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#2ED225, green); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#2ED225,green); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#2ED225, green);
 }
 header h1{
     font-family:Comfortaa;
@@ -28,9 +31,9 @@ header h1{
 main{
     font-family: serif;
     border-radius: 25px;
-    margin:auto;
+    margin-left:1%;
     margin-top: 10px;
-    width:100%;
-    background-color:green;
+    background-color:white;
     padding-bottom: 25px;
+    max-width:1400px;
 }
