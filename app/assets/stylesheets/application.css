@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+body{
+    width:100%;
+    position:fixed;
+    background-size:100%;
+    background-color:green;
+    background: -webkit-linear-gradient(#2ED225, green); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#2ED225, green); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#2ED225,green); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#2ED225, green);
+}
+header h1{
+    font-family:Comfortaa;
+    margin-top:0;
+    font-size:75px;
+}
+main{
+    font-family: serif;
+    border-radius: 25px;
+    margin-left:1%;
+    margin-top: 10px;
+    background-color:white;
+    padding-bottom: 25px;
+    max-width:1400px;
+}
