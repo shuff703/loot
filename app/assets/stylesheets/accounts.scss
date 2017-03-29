@@ -1,7 +1,18 @@
 // Place all the styles related to the Accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body main p{
+body main p, body main button{
     font-size:24px;
-    margin:auto;
+    margin-left:10%;
+}
+
+body main button{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: green;
+}
+
+body main button a{
+    text-decoration:none;
+    color:white;
 }

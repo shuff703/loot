@@ -15,7 +15,7 @@
  */
 body{
     width:100%;
-    position:fixed;
+    position:relative;
     background-size:100%;
     background-color:green;
     background: -webkit-linear-gradient(#2ED225, green); /* For Safari 5.1 to 6.0 */
@@ -27,13 +27,26 @@ header h1{
     font-family:Comfortaa;
     margin-top:0;
     font-size:75px;
+    margin-bottom:25px;
 }
 main{
     font-family: serif;
     border-radius: 25px;
     margin-left:1%;
-    margin-top: 10px;
     background-color:white;
     padding-bottom: 25px;
+    padding-top:25px;
     max-width:1400px;
+    min-height:600px;
+}
+footer{
+    width:100%;
+    height:29px;
+    background-color: green;
+    padding-top: 10px;
+}
+
+footer #team{
+    float:right;
+    margin-right:25px;
 }
