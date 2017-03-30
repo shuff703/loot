@@ -7,19 +7,21 @@
             <h1>Loot</h1>
         </header>
         <main>
-            <p>
-                Join Loot today!
-            </p>
-            <br>
+            <h2>
+                Join Loot Today!
+            </h2>
             <p>
                 <label>Username: </label>
                 <input type="text_field">
                 
                 <label>Password:</label>
                 <input type="text_field">
+                <button><%= link_to 'Sign Up', new_account_path %></button>
             </p>
             <br>
-            <button><%= link_to 'Sign Up', new_account_path %></button>
+            <span>
+                <button><%= link_to 'Back', accounts_path %></button>
+            </span>
         </main>
         <footer>
             <span>&copy; Loot 2017</span>

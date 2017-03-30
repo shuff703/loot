@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+html{
+    font-family:Comfortaa;
+}
 body{
     width:100%;
     position:relative;
@@ -30,14 +33,18 @@ header h1{
     margin-bottom:25px;
 }
 main{
-    font-family: serif;
     border-radius: 25px;
     margin-left:1%;
+    margin-right: 1%;
     background-color:white;
     padding-bottom: 25px;
     padding-top:25px;
     max-width:1400px;
     min-height:600px;
+    background-image: url("Dollar-Sign-2-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    color:#2ED225;
 }
 footer{
     width:100%;
