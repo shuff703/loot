@@ -1,5 +1,5 @@
 class BudgetsController < ApplicationController
-    def index
-        
+    def index 
+        #@budgets = Budgets.find(:account)
     end
 end

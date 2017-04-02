@@ -7,16 +7,18 @@
             <h1>Loot</h1>
         </header>
         <main>
-            <h2>Log In:</h2>
-            <p>
-                <label>Username: </label>
-                <input type="text_field">
-                
-                <label>Password:</label>
-                <input type="text_field">
-                
-                <button><a href="#">Log In</a></button>
-            </p>
+            <h2>Log In</h2>
+            <%= form_for :account, :url => sign_in_path(@account) do |f| %>
+                <p>
+                    <%= f.label 'Username: ' %>
+                    <%= f.text_field :username %>
+                    
+                    <%= f.label 'Password: ' %>
+                    <%= f.text_field :password %>
+                    
+                    <button><%= f.submit 'Sign In' %></button>
+                </p>
+            <% end %>
             
             <p>OR</p>
             
