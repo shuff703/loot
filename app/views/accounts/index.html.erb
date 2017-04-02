@@ -9,7 +9,6 @@
         <main>
             <h2>Log In</h2>
             <%= form_for :account, :url => sign_in_path(@account) do |f| %>
-                <p>
                     <%= f.label 'Username: ' %>
                     <%= f.text_field :username %>
                     
@@ -17,7 +16,6 @@
                     <%= f.text_field :password %>
                     
                     <button><%= f.submit 'Sign In' %></button>
-                </p>
             <% end %>
             
             <p>OR</p>
