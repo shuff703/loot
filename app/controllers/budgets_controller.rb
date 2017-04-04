@@ -1,6 +1,6 @@
 class BudgetsController < ApplicationController
     def index 
-        #@budgets = Budgets.find(:account)
+        @budgets = Budget.all
     end
     
     def new
