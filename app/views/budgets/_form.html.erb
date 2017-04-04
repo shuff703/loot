@@ -1,0 +1,31 @@
+<%= form_for @budget do |f| %>
+
+    <% if @budget.errors.any? %>
+      <div id="error_explanation">
+          <h2>
+              <%= plurarlize(@budget.errors.count, "error") %> prohibited
+              this budget from being saved:
+          </h2>
+          <ul>
+              <% @budget.errors.full_messages.each do |msg| %>
+              <li><%= msg%></li>
+              <% end %>
+          </ul>
+      </div>
+      <% end %>
+      
+      <p>
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+      </p>
+      
+      <p>
+          <%= f.label :limit %><br>
+          <%= f.text_field :limit %>
+      </p>
+      
+      <p>
+          <%= f.submit %>
+      </p>
+      
+<% end %>
