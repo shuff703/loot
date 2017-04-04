@@ -2,4 +2,23 @@ class BudgetsController < ApplicationController
     def index 
         #@budgets = Budgets.find(:account)
     end
+    
+    def new
+        @budget = Budget.new
+    end
+    
+    def create
+        @budget = Budget.new(budget_params)
+
+        if @budget.save
+            redirect_to @budget
+        else
+            render 'new'
+        end 
+    end    
 end
+
+private
+    def budget_params
+        params.require(:budget).permit(:name, :limit)
+    end
