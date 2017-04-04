@@ -7,7 +7,18 @@
             <h1>Loot</h1>
         </header>
         <main>
-            <p>Some stuff here</p>
+            <button><%= link_to 'New Budget', new_budget_path %></button>
+            <table>
+                <%= @budgets.each do |budget| %>
+                    <tr>
+                        <td><%= budget.name %></td>
+                        <td><%= link_to 'View', transaction_path(budget) %></td>
+                        <td><%= link_to 'Edit', edit_budget_path(budget) %></td>
+                        <td><%= link_to 'Delete', budget_path(budget) method: :delete 
+                        data: { confirm: 'All budget information will be lost. Are you sure?' }%></td>
+                    </tr>
+                <% end %>
+            </table>
         </main>
     </body>
     <footer>
