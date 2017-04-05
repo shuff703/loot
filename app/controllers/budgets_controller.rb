@@ -1,4 +1,6 @@
 class BudgetsController < ApplicationController
+    before_action :require_account
+    
     def index 
         #@budgets = Budgets.find(:account)
     end
