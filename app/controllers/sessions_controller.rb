@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
             session[:account_id] = @account.id
             redirect_to '/' # Fix this redirect
         else
-            redirect_to 'login'
+            redirect_to '/login'
         end
     end
     

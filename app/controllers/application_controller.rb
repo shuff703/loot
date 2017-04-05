@@ -9,4 +9,5 @@ class ApplicationController < ActionController::Base
   
   def require_account
       redirect_to '/login' unless current_user
+  end
 end
