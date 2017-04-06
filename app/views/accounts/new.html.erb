@@ -2,16 +2,15 @@
     Join Loot Today!
 </h2>
 
-<%= form_for :accounts do |f| %>
+<%= form_for @account do |f| %>
     <%= f.label 'Username: ' %>
     <%= f.text_field :username %><br />
-    
+        
     <%= f.label 'Password: ' %>
     <%= f.password_field :password %><br />
-    
+        
     <button><%= f.submit 'Create Account' %></button>
 <% end %>
-
 <span>
     <button><%= link_to 'Back', login_path %></button>
 </span>
