@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   post "sign_in" => "authentication#login"
   get "sign_in" => "authentication#sign_in"
   
-  root 'budgets#index'
+  root 'accounts#index'
 end
