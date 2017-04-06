@@ -8,9 +8,9 @@ class AccountsController < ApplicationController
         
         if @account.save
             session[:account_id] = @account.id
-            redirect_to 'login'
+            redirect_to 'login_path'
         else
-            redirect_to 'signup'
+            redirect_to 'signup_path'
         end
     end
 end
