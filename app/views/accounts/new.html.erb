@@ -1,28 +1,18 @@
-<header>
-    <h1>Loot</h1>
-</header>
+<h2>
+    Join Loot Today!
+</h2>
 
-<main>
-    <h2>
-        Join Loot Today!
-    </h2>
+<%= form_for :accounts do |f| %>
+    <%= f.label 'Username: ' %>
+    <%= f.text_field :username %><br />
     
-    <%= form_for :accounts do |f| %>
-        <%= f.label 'Username: ' %>
-        <%= f.text_field :username %><br />
-        
-        <%= f.label 'Password: ' %>
-        <%= f.password_field :password %><br />
-        
-        <button><%= f.submit 'Create Account' %></button>
-    <% end %>
+    <%= f.label 'Password: ' %>
+    <%= f.password_field :password %><br />
     
-    <span>
-        <button><%= link_to 'Back', accounts_path %></button>
-    </span>
-</main>
+    <button><%= f.submit 'Create Account' %></button>
+<% end %>
 
-<footer>
-    <span>&copy; Loot 2017</span>
-    <span id="team">Scott Huff, Cory Johnson, Son Huynh &amp; Chris Stump</span>
-</footer>
+<span>
+    <button><%= link_to 'Back', login_path %></button>
+</span>
+

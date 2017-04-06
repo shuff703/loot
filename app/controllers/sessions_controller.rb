@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         
         if @account && @account.authenticate(params[:session][:password])
             session[:account_id] = @account.id
-            redirect_to '/' # Fix this redirect
+            redirect_to 'account_budgets' 
         else
             redirect_to '/login'
         end
