@@ -7,11 +7,9 @@ class AuthenticationController < ApplicationController
 
         if account
             redirect_to :root
-        else
-            render :action => "sign_in"
-        end 
+        end
     end
     def sign_in
-        @user = User.new
+        @account = Account.new
     end
 end

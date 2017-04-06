@@ -1,16 +1,14 @@
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
-    </head>
-    <body>
-        <header>
-            <h1>Loot</h1>
-        </header>
-        <main>
-            <h2>Budgets</h2>
-        </main>
-    </body>
-    <footer>
-        
-    </footer>
-</html>
+
+<h2>Budgets</h2>
+<button id="newBudget"><%= link_to 'New Budget', new_account_budget_path(:session_id) %></button>
+<table>
+    <% @budgets.each do |budget| %>
+        <tr>
+            <td><%= budget.name %></td>
+            <td><%= link_to 'View', transaction_path(budget) %></td>
+            <td><%= link_to 'Edit', edit_budget_path(budget) %></td>
+            <td><%= link_to 'Delete', budget_path(budget), method: :delete, 
+            data: { confirm: 'All budget information will be lost. Are you sure?' }%></td>
+        </tr>
+    <% end %>
+</table>

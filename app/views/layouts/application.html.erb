@@ -8,8 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <header><h1>Loot</h1></header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <span>&copy; Loot 2017</span>
+      <span id="team">Scott Huff, Cory Johnson, Son Huynh &amp; Chris Stump</span>
+    </footer>
   </body>
 </html>
