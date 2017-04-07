@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
         
         if @account && @account.authenticate(params[:session][:password])
             session[:account_id] = @account.id
-            redirect_to 'account_budgets' 
+            redirect_to '/login' 
         else
-            redirect_to '/login'
+            redirect_to '/signup'
         end
     end
     
