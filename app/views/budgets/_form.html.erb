@@ -1,14 +1,12 @@
-<%= form_for :budget do |f| %>
+<%= form_for @budget do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
- 
   <p>
     <%= f.label :limit %><br>
-    <%= f.text_field :limit %>
+    <%= f.number_field :limit %>
   </p>
- 
   <p>
     <%= f.submit %>
   </p>

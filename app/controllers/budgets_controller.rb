@@ -2,7 +2,7 @@ class BudgetsController < ApplicationController
     before_action :require_username
     
     def index 
-        @budgets = Budget.all
+        @budgets = Budget.where(:account_id => session[:account_id])
     end
     
     def new
@@ -11,13 +11,16 @@ class BudgetsController < ApplicationController
     
     def create
         @budget = Budget.new(budget_params)
-
+        @budget.account_id = session[:account_id]
         if @budget.save
             redirect_to @budget
         else
             render 'new'
         end 
-    end    
+    end
+    def show
+        #@transactions = Transaction.find(:budget_id)
+    end
 end
 
 private

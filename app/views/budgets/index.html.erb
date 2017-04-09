@@ -1,11 +1,11 @@
 
 <h2>Budgets</h2>
-<button id="newBudget"><%= link_to 'New Budget', new_account_budget_path(:session_id) %></button>
+<button id="newBudget"><%= link_to 'New Budget', new_budget_path %></button>
 <table>
     <% @budgets.each do |budget| %>
         <tr>
             <td><%= budget.name %></td>
-            <td><%= link_to 'View', transaction_path(budget) %></td>
+            <td><%= link_to 'View', budget_path(budget) %></td>
             <td><%= link_to 'Edit', edit_budget_path(budget) %></td>
             <td><%= link_to 'Delete', budget_path(budget), method: :delete, 
             data: { confirm: 'All budget information will be lost. Are you sure?' }%></td>
