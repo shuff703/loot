@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   end
   
   def require_account
-      redirect_to '/login' unless current_user
+      redirect_to '/login' unless current_account
   end
 end
