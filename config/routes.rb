@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   
   get 'accounts/index'
+  get 'budgets/index'
   get 'signup' => 'accounts#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

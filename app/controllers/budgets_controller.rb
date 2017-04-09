@@ -1,19 +1,19 @@
 class BudgetsController < ApplicationController
-    before_action :require_account
+    #before_action :require_account
     
     def index 
         @budgets = Budget.all
     end
     
     def new
-        @budget = Budget.new
+        @budgets = Budget.new
     end
     
     def create
-        @budget = Budget.new(budget_params)
+        @budgets = Budget.new(budget_params)
 
-        if @budget.save
-            redirect_to @budget
+        if @budgets.save
+            redirect_to @budgets
         else
             render 'new'
         end 
