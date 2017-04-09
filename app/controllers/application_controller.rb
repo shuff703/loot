@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
-  helper_method :current_account
+  helper_method :current_username
   
-  def current_account
-      @current_account ||= Account.find(session[:account_id]) if session[:account_id]
+  def current_username
+      @current_username ||= Account.find(session[:account_id]) if session[:account_id]
   end
   
   def require_account
-      redirect_to '/login' unless current_user
+      redirect_to '/login' unless current_username
   end
 end
