@@ -1,5 +1,5 @@
 class BudgetsController < ApplicationController
-    before_action :require_account
+    before_action :require_username
     
     def index 
         @budgets = Budget.all

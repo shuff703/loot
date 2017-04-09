@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
       @current_username ||= Account.find(session[:account_id]) if session[:account_id]
   end
   
-  def require_account
+  def require_username
       redirect_to '/login' unless current_username
   end
 end
