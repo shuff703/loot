@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     end
     
     def create
+        byebug
         @account = Account.find_by_username(params[:session][:username])
         
         if @account && @account.authenticate(params[:session][:password])
