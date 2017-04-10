@@ -3,11 +3,10 @@ Rails.application.routes.draw do
   resources :accounts
   
   resources :budgets do
+    resources :transactions
     end
   
   get 'accounts/index'
-  #get 'budgets/index'
-  #post 'budgets/create'
   get 'signup' => 'accounts#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
