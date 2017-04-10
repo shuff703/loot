@@ -18,8 +18,30 @@ class BudgetsController < ApplicationController
             render 'new'
         end 
     end
+    
+    def edit
+        @budget = Budget.find(params[:id])
+    end
+    
+    def update
+        @budget = Budget.find(params[:id])
+        
+        if @budget.update(budget_params)
+            redirect_to @budget
+        else
+            render 'edit'
+        end
+    end
+    
     def show
         #@transactions = Transaction.find(:budget_id)
+    end
+    
+    def destroy
+        @budget = Budget.find(params[:id])
+        @budget.destroy
+        
+        redirect_to budgets_path
     end
 end
 
