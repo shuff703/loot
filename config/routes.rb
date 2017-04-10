@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   resources :accounts
   
   resources :budgets do
-    resources :transactions
-  end
+    end
   
   get 'accounts/index'
   #get 'budgets/index'
