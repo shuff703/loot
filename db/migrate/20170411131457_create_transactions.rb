@@ -5,7 +5,7 @@ class CreateTransactions < ActiveRecord::Migration[5.0]
       t.float :amount
       t.string :category
       t.date :date
-      t.integer :budget_id
+      t.references :budget, foreign_key: true
 
       t.timestamps
     end
