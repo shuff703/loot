@@ -3,12 +3,8 @@ Rails.application.routes.draw do
   resources :accounts
   
   resources :budgets do
-<<<<<<< HEAD
-      end
-=======
     resources :transactions
-    end
->>>>>>> 6d39f9e78eec198f8933fa4287dc5dda14dc3d85
+  end
   
   get 'accounts/index'
   get 'signup' => 'accounts#new'
