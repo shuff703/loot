@@ -1,0 +1,19 @@
+<h2><%= @budget.name %></h2>
+<button id="newTransaction"><%= link_to 'Add Transaction', new_budget_transaction_path %></button>
+<table>
+    <% for i in 1..10 %>
+        <% break if @trasactions.get(i).empty? %>
+        <tr>
+            <td>@transactions.get(i).recipient</td>
+            <td>@transactions.get(i).amount</td>
+            <td>@transactions.get(i).category</td>
+            <td>@transactions.get(i).date</td>
+            <td><%= link_to 'View', budget_transaction_path %></td>
+            <td><%= link_to 'Edit', edit_budget_transaction_path(@transactions.get(i) %></td>
+            <td><%= link_to 'Delete', budget_transaction_path(@transactions.get(i)), method: :delete, 
+            data: { confirm: 'All transaction information will be lost. Are you sure?' }%></td>
+        </tr>
+    <% end %>
+</table>
+<%= link_to 'View All Transactions', budget_transactions_path %>
+

@@ -19,7 +19,13 @@ class BudgetsController < ApplicationController
         end 
     end
     def show
-        #@transactions = Transaction.find(:budget_id)
+        @transactions = Transaction.where(:budget_id => params[:id])
+        @transactions.reverse!
+        @spent = 0
+        @transactions.each do |transaction|
+            @spent += transaction.amount
+        end
+        @budget = Budget.find(params[:id])
     end
 end
 
