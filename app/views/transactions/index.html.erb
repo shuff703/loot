@@ -1,0 +1,29 @@
+<h2>All Transacitons</h2>
+<table>
+    <th>
+        <td>
+            Recipient
+        </td>
+        <td>
+            Amount
+        </td>
+        <td>
+            Category
+        </td>
+        <td>
+            Date
+        </td>
+    </th>
+    <% @budget.transactions.each do |transaction| %>
+        <tr>
+            <td><%= transaction.recipient %></td>
+            <td><%= transaction.amount %></td>
+            <td><%= transaction.category %></td>
+            <td><%= transaction.date %></td>
+            <td><%= link_to 'View', budget_transaction_path(@budget, transaction) %></td>
+            <td><%= link_to 'Edit', edit_budget_transaction_path(@budget, transaction) %></td>
+            <td><%= link_to 'Delete', budget_transaction_path(@budget, transaction), method: :delete, 
+                data: { confirm: 'All Transaction information will be lost. Are you sure?' }%></td>
+        </tr>
+    <% end %>
+</table>

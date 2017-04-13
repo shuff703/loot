@@ -35,6 +35,7 @@ class BudgetsController < ApplicationController
     
     def show
         @budget = Budget.find(params[:id])
+        @transactions = Transaction.where(:budget_id => @budget.id).limit(10)
     end
     
     def destroy
