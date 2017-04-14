@@ -23,8 +23,8 @@ class TransactionsController < ApplicationController
         @transaction = Transaction.find(params[:id])
     end
     def update
-        @budget = Budget.find(params[:budget_id])
-        if @budget.transactions.update(transaction_params)
+        @transaction = Transaction.find(params[:id])
+        if @transaction.update(transaction_params)
             redirect_to budget_transaction_path
         else
             render 'edit'

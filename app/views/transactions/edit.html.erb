@@ -1,5 +1,5 @@
 <h2>Edit Transaction</h2>
-<%= form_for([@budget, @transaction]) do |f| %>
+<%= form_for([@budget, @budget.transaction]) do |f| %>
     <p>
         <%= f.label :recipient %><br>
         <%= f.text_field :recipient %>
