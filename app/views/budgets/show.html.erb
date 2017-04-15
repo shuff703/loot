@@ -24,9 +24,9 @@
             <td><%= transaction.amount %></td>
             <td><%= transaction.category %></td>
             <td><%= transaction.date %></td>
-            <td><%= link_to 'View', budget_transaction_path(transaction) %></td>
-            <td><%= link_to 'Edit', edit_budget_transaction_path(transaction) %></td>
-            <td><%= link_to 'Delete', budget_transaction_path(transaction), method: :delete, 
+            <td><%= link_to 'View', budget_transaction_path(@budget, transaction) %></td>
+            <td><%= link_to 'Edit', edit_budget_transaction_path(@budget, transaction) %></td>
+            <td><%= link_to 'Delete', budget_transaction_path(@budget, transaction), method: :delete, 
                 data: { confirm: 'All budget information will be lost. Are you sure?' }%></td>
         </tr>
     <% end %>
