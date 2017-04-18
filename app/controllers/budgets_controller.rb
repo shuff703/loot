@@ -35,6 +35,12 @@ class BudgetsController < ApplicationController
     
     def show
         @budget = Budget.find(params[:id])
+        @transactions = Transaction.where(:budget_id => @budget.id)
+        @totalSpent = 0
+        @transactions.each do |transaction|
+            @totalSpent = @totalSpent + transaction.amount
+        end
+        @remaining = @budget.limit - @totalSpent
         @transactions = Transaction.where(:budget_id => @budget.id).limit(10).sort_by &:date
         @transactions.reverse!
     end

@@ -31,6 +31,14 @@
         </tr>
     <% end %>
 </table>
+<p>
+    Spent: 
+    <%= @totalSpent %>
+</p>
+<p>
+    Remaining:
+    <%= @remaining %>
+</p>
 
 <%= link_to 'View All Transactions', budget_transactions_path(@budget) %>
 

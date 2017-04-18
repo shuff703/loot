@@ -15,6 +15,10 @@ class TransactionsController < ApplicationController
         @budget = Budget.find(params[:budget_id])
         @transactions = Transaction.where(:budget_id => params[:budget_id]).sort_by &:date
         @transactions.reverse!
+        @totalSpent = 0
+        @transactions.each do |transaction|
+            @totalSpent = @totalSpent + transaction.amount
+        end
     end
     
     def show
