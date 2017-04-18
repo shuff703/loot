@@ -14,7 +14,7 @@
             Date
         </td>
     </th>
-    <% @budget.transactions.each do |transaction| %>
+    <% @transactions.reverse.each do |transaction| %>
         <tr>
             <td><%= transaction.recipient %></td>
             <td><%= transaction.amount %></td>

@@ -13,6 +13,8 @@ class TransactionsController < ApplicationController
     
     def index
         @budget = Budget.find(params[:budget_id])
+        @transactions = Transaction.where(:budget_id => params[:budget_id]).sort_by &:date
+        @transactions.reverse!
     end
     
     def show
