@@ -16,6 +16,7 @@ class TransactionsController < ApplicationController
     end
     
     def show
+        @budget = Budget.find(params[:budget_id])
         @transaction = Transaction.find(params[:id])
     end
     def edit
