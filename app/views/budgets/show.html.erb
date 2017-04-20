@@ -22,7 +22,7 @@
         <tr>
             <td><%= transaction.recipient %></td>
             <td><%= transaction.amount %></td>
-            <td><%= transaction.category %></td>
+            <td><%= transaction.category.titleize %></td>
             <td><%= transaction.date %></td>
             <td><%= link_to 'View', budget_transaction_path(@budget, transaction) %></td>
             <td><%= link_to 'Edit', edit_budget_transaction_path(@budget, transaction) %></td>
@@ -33,11 +33,39 @@
 </table>
 <p>
     Spent: 
-    <%= @totalSpent %>
+    <%= '%.2f' % @total_spent %>
 </p>
 <p>
     Remaining:
     <%= @remaining %>
+</p>
+<p>
+    Utilities: 
+    <%= @utilities %>
+</p>
+<p>
+    Housing: 
+    <%= @housing %>
+</p>
+<p>
+    Food: 
+    <%= @food %>
+</p>
+<p>
+    Entertainment: 
+    <%= @entertainment %>
+</p>
+<p>
+    Savings: 
+    <%= @savings %>
+</p>
+<p>
+    Transportation: 
+    <%= @transportation %>
+</p>
+<p>
+    Debt: 
+    <%= @debt %>
 </p>
 
 <%= link_to 'View All Transactions', budget_transactions_path(@budget) %>

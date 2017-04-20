@@ -1,6 +1,8 @@
 class BudgetsController < ApplicationController
     before_action :require_username
     
+    @categories = ["utilities", "food", "housing", "entertainment", "savings", "transportation", "debt"]
+    
     def index 
         @budgets = Budget.where(:account_id => session[:account_id])
     end
@@ -34,13 +36,40 @@ class BudgetsController < ApplicationController
     end
     
     def show
+        @total_spent = 0
+        @utilities = 0
+        @food = 0
+        @housing = 0
+        @entertainment = 0
+        @savings = 0
+        @transportation = 0
+        @debt = 0
+        
         @budget = Budget.find(params[:id])
         @transactions = Transaction.where(:budget_id => @budget.id)
-        @totalSpent = 0
+
         @transactions.each do |transaction|
-            @totalSpent = @totalSpent + transaction.amount
+            case transaction.category
+            when Loot::CATEGORIES.fetch(0)
+                @utilities += transaction.amount
+            when Loot::CATEGORIES.fetch(1)
+                @food += transaction.amount
+            when Loot::CATEGORIES.fetch(2)
+                @housing += transaction.amount
+            when Loot::CATEGORIES.fetch(3)
+                @entertainment += transaction.amount
+            when Loot::CATEGORIES.fetch(4)
+                @savings += transaction.amount
+            when Loot::CATEGORIES.fetch(5)
+                @transportation += transaction.amount
+            when Loot::CATEGORIES.fetch(6)
+                @debt += transaction.amount
+            end
         end
-        @remaining = @budget.limit - @totalSpent
+        @total_spent = @utilities + @food + @housing + @entertainment + @savings +
+        @transportation + @debt
+        
+        @remaining = @budget.limit - @total_spent
         @transactions = Transaction.where(:budget_id => @budget.id).limit(10).sort_by &:date
         @transactions.reverse!
     end
@@ -51,9 +80,16 @@ class BudgetsController < ApplicationController
         
         redirect_to budgets_path
     end
+    
 end
 
 private
     def budget_params
         params.require(:budget).permit(:name, :limit)
     end
+
+private
+    def categories
+        
+    end
+

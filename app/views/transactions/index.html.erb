@@ -18,7 +18,7 @@
         <tr>
             <td><%= transaction.recipient %></td>
             <td><%= transaction.amount %></td>
-            <td><%= transaction.category %></td>
+            <td><%= transaction.category.titleize %></td>
             <td><%= transaction.date %></td>
             <td><%= link_to 'View', budget_transaction_path(@budget, transaction) %></td>
             <td><%= link_to 'Edit', edit_budget_transaction_path(@budget, transaction) %></td>
