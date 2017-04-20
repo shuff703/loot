@@ -242,11 +242,8 @@ DEPENDENCIES
   listen (~> 3.0.5)
   puma (~> 3.0)
   rails (~> 5.0.2)
-<<<<<<< HEAD
-  rspec-rails
-=======
   rails-assets-tether (>= 1.3.3)!
->>>>>>> c13564451e0a906e5bbcdf04fe08c350e75b9bf4
+  rspec-rails
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
