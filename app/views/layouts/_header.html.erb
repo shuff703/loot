@@ -1,8 +1,10 @@
-<h1>Loot</h1>
-
-<div id="UserLogout">
-  <% if current_username %>
-    Hi, <%= current_username.username %>!
-    <%= link_to "Log out", logout_path, method: "delete" %>
-  <% end %>
+<div class="row">
+  <h1>Loot</h1>
+  
+  <div id="UserLogout">
+    <% if current_username %>
+      Hi, <%= current_username.username %>!
+      <%= link_to "Log out", logout_path, method: "delete" %>
+    <% end %>
+  </div>
 </div>

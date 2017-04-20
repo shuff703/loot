@@ -10,7 +10,8 @@ body {
   border-color: #27ae60;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:active{
     color: #ecf0f1;
     background-color: #2ecc71;
     border-color: #2ecc71;
@@ -23,7 +24,8 @@ body {
     border-color: #27ae60;
 }
 
-.btn-outline-primary:hover {
+.btn-outline-primary:hover,
+.btn-outline-primary:active{
     color: #ecf0f1;
     background-color: #2ecc71;
     border-color: #2ecc71;
