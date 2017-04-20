@@ -26,8 +26,41 @@
                 data: { confirm: 'All Transaction information will be lost. Are you sure?' }%></td>
         </tr>
     <% end %>
-    <p>
-        <%= @totalSpent %>
-    </p>
-    <%= link_to 'Back', budget_path(@budget) %>
 </table>
+<p>
+    Spent: 
+    <%= '%.2f' % @total_spent %>
+</p>
+<p>
+    Remaining:
+    <%= '%.2f' % @remaining %>
+</p>
+<p>
+    Utilities: 
+    <%= '%.2f' % @utilities %>
+</p>
+<p>
+    Housing: 
+    <%= '%.2f' % @housing %>
+</p>
+<p>
+    Food: 
+    <%= '%.2f' % @food %>
+</p>
+<p>
+    Entertainment: 
+    <%= '%.2f' % @entertainment %>
+</p>
+<p>
+    Savings: 
+    <%= '%.2f' % @savings %>
+</p>
+<p>
+    Transportation: 
+    <%= '%.2f' % @transportation %>
+</p>
+<p>
+    Debt: 
+    <%= '%.2f' % @debt %>
+</p>
+<%= link_to 'Back', budget_path(@budget) %>

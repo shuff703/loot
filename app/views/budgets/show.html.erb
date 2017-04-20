@@ -37,35 +37,35 @@
 </p>
 <p>
     Remaining:
-    <%= @remaining %>
+    <%= '%.2f' % @remaining %>
 </p>
 <p>
     Utilities: 
-    <%= @utilities %>
+    <%= '%.2f' % @utilities %>
 </p>
 <p>
     Housing: 
-    <%= @housing %>
+    <%= '%.2f' % @housing %>
 </p>
 <p>
     Food: 
-    <%= @food %>
+    <%= '%.2f' % @food %>
 </p>
 <p>
     Entertainment: 
-    <%= @entertainment %>
+    <%= '%.2f' % @entertainment %>
 </p>
 <p>
     Savings: 
-    <%= @savings %>
+    <%= '%.2f' % @savings %>
 </p>
 <p>
     Transportation: 
-    <%= @transportation %>
+    <%= '%.2f' % @transportation %>
 </p>
 <p>
     Debt: 
-    <%= @debt %>
+    <%= '%.2f' % @debt %>
 </p>
 
 <%= link_to 'View All Transactions', budget_transactions_path(@budget) %>
