@@ -46,9 +46,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-<<<<<<< HEAD
 group :test do
-=======
 # Use bootstrap4 for styling
 gem 'bootstrap', '~> 4.0.0.alpha6'
 source 'https://rails-assets.org' do
@@ -57,7 +55,6 @@ end
 
 
 group :development, :test do
->>>>>>> c13564451e0a906e5bbcdf04fe08c350e75b9bf4
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'cucumber'
@@ -78,3 +75,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+end
