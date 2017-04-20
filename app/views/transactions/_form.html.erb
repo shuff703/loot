@@ -9,9 +9,13 @@
     </p>
     <p>
         <%= f.label :category %><br>
-        <%= f.select :category do |s|%>
+        <%= f.select :category, selected: :category do |s|%>
             <%= Loot::CATEGORIES.each do |category| %>
-                <%= content_tag :option, category.titleize, value: category %>
+                <% if category == @transaction.category %>
+                    <%= content_tag :option, category.titleize, value: category, selected: @transaction.category %>
+                <% else %>
+                    <%= content_tag :option, category.titleize, value: category %>
+                <% end %>
             <% end %>
         <% end %>
     </p>
