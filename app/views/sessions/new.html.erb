@@ -1,10 +1,15 @@
-<h2>Log In</h2>
-<%= form_for(:session, url: login_path) do |f| %>
-    <%= f.text_field :username, :placeholder => "Username" %><br/>
-    <%= f.password_field :password, :placeholder => "Password" %><br/>
+<div id='loginBlock'>
+    <h2>Log In</h2>
     
-    <%= f.submit "Log In" %>
-<% end %>
-<h2>OR</h2>
-<button><%= link_to 'Sign Up', signup_path %></button>
-
+    <%= form_for(:session, url: login_path) do |f| %>
+        <%= f.text_field :username, :placeholder => "Username" %><br/>
+        <%= f.password_field :password, :placeholder => "Password" %><br/>
+        
+        <%= f.submit "Log In" %>
+    <% end %>
+    
+    
+    <h2>OR</h2>
+    
+    <%= button_to 'Sign Up', signup_path %>
+</div>

@@ -1,34 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Loot</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Loot</h1>
-        <div id="UserLogout">
-          <% if current_username %>
-            Hi, <%= current_username.username %>!
-            <%= link_to "Log out", logout_path, method: "delete" %>
-          <% end %>
-        </div>
-      </header>
+    <div class="container">
+        
       
       <main>
         <%= yield %>
       </main>
       
-      <footer>
-        <span>&copy; Loot 2017</span>
-        <span id="team">Scott Huff, Cory Johnson, Son Huynh &amp; Chris Stump</span>
-      </footer>
+
     </div>
   </body>
 </html>
