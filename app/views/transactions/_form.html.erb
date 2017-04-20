@@ -1,4 +1,4 @@
-<%= form_for([@budget, @budget.transactions.build]) do |f| %>
+<%= form_for([@budget, @transaction]) do |f| %>
     <p>
         <%= f.label :recipient %><br>
         <%= f.text_field :recipient %>
@@ -9,7 +9,15 @@
     </p>
     <p>
         <%= f.label :category %><br>
-        <%= f.text_area :category %>
+        <%= f.select :category, selected: :category do |s|%>
+            <%= Loot::CATEGORIES.each do |category| %>
+                <% if category == @transaction.category %>
+                    <%= content_tag :option, category.titleize, value: category, selected: @transaction.category %>
+                <% else %>
+                    <%= content_tag :option, category.titleize, value: category %>
+                <% end %>
+            <% end %>
+        <% end %>
     </p>
     <p>
         <%= f.label :date %><br>

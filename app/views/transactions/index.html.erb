@@ -14,11 +14,11 @@
             Date
         </td>
     </th>
-    <% @budget.transactions.each do |transaction| %>
+    <% @transactions.reverse.each do |transaction| %>
         <tr>
             <td><%= transaction.recipient %></td>
             <td><%= transaction.amount %></td>
-            <td><%= transaction.category %></td>
+            <td><%= transaction.category.titleize %></td>
             <td><%= transaction.date %></td>
             <td><%= link_to 'View', budget_transaction_path(@budget, transaction) %></td>
             <td><%= link_to 'Edit', edit_budget_transaction_path(@budget, transaction) %></td>
@@ -27,3 +27,40 @@
         </tr>
     <% end %>
 </table>
+<p>
+    Spent: 
+    <%= '%.2f' % @total_spent %>
+</p>
+<p>
+    Remaining:
+    <%= '%.2f' % @remaining %>
+</p>
+<p>
+    Utilities: 
+    <%= '%.2f' % @utilities %>
+</p>
+<p>
+    Housing: 
+    <%= '%.2f' % @housing %>
+</p>
+<p>
+    Food: 
+    <%= '%.2f' % @food %>
+</p>
+<p>
+    Entertainment: 
+    <%= '%.2f' % @entertainment %>
+</p>
+<p>
+    Savings: 
+    <%= '%.2f' % @savings %>
+</p>
+<p>
+    Transportation: 
+    <%= '%.2f' % @transportation %>
+</p>
+<p>
+    Debt: 
+    <%= '%.2f' % @debt %>
+</p>
+<%= link_to 'Back', budget_path(@budget) %>

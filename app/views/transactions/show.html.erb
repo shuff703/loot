@@ -9,9 +9,12 @@
 </p>
 <p>
     <h3>Category</h3>
-    <%= @transaction.category %>
+    <%= @transaction.category.titleize %>
 </p>
 <p>
     <h3>Date</h3>
     <%= @transaction.date %>
+</p>
+<p>
+    <%= link_to 'Budget Home', budget_path(@budget) %>
 </p>
