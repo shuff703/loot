@@ -1,17 +1,22 @@
-<h2>
-    Join Loot Today!
-</h2>
+<%= render 'header' %>
 
-<%= form_for @account do |f| %>
-    <%= f.label 'Username: ' %>
-    <%= f.text_field :username %><br />
-        
-    <%= f.label 'Password: ' %>
-    <%= f.password_field :password %><br />
-        
-    <button><%= f.submit 'Create Account' %></button>
-<% end %>
-<span>
-    <button><%= link_to 'Back', login_path %></button>
-</span>
+<div class="row justify-content-center">
+  <div class="col-4 card">
+    <div class="card-block">
+      <h2 class="text-center">Join Loot Today!</h2>
+      
+      <%= form_for @account do |f| %>
+        <div class="form-group">
+          <%= f.text_field :username, :placeholder => "Desired Username", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password, :placeholder => "Desired Password", class: "form-control"  %>
+        </div>
+        <%= f.submit 'Create Account', class: 'btn btn-primary btn-sm' %>
+        <%= link_to 'Back', login_path, class: 'btn btn-outline-primary btn-sm float-right' %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
+<%= render 'footer' %>
