@@ -46,9 +46,9 @@ class BudgetsController < ApplicationController
         @debt = 0
         
         @budget = Budget.find(params[:id])
-        @transactions = Transaction.where(:budget_id => @budget.id)
-
-        @transactions.each do |transaction|
+        @all_transactions = Transaction.where(:budget_id => @budget.id)
+        
+        @all_transactions.each do |transaction|
             case transaction.category
             when Loot::CATEGORIES.fetch(0)
                 @utilities += transaction.amount
@@ -70,8 +70,10 @@ class BudgetsController < ApplicationController
         @transportation + @debt
         
         @remaining = @budget.limit - @total_spent
-        @transactions = Transaction.where(:budget_id => @budget.id).limit(10).sort_by &:date
-        @transactions.reverse!
+        
+        byebug
+        @transactions = @all_transactions.reverse
+        @transactions = @all_transactions[1..10].sort_by &:date
     end
     
     def destroy
