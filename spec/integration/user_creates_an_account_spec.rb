@@ -47,17 +47,12 @@ feature "User should be able to create budgets" do
         fill_in('Username', :with => 'Test')
         fill_in('Password', :with => 'password')
         click_button("Log In")
-        expect(page).to have_content("Log out")
         expect(page).to have_content("Budgets")
-        click_button("New Budget")
+        click_link("New Budget")
         expect(page).to have_content("New Budget")
-        
-        within_fieldset(:name) do
-            fill_in 'Name', with: 'Budget 2017'
-        end
-        within_fieldset(:limit) do
-            fill_in 'Limit', with: '1500.00'
-        end
+    
+        fill_in "Name", :with => 'Budget 2017'
+        fill_in "Limit", :with => '1500.00'
         
         click_button("Create Budget")
         expect(page).to have_content("Budget 2017")
