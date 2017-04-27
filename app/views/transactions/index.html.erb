@@ -27,40 +27,153 @@
         </tr>
     <% end %>
 </table>
+<div id="ledger">
+    <table class="table-sm">
+    <thead></thead>
+    <tbody>
+        <tr>
+            <td>
+                Limit: 
+            </td>
+            <td></td>
+            <td>
+                <%= @budget.limit %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+            <td class="expense">
+               Less: Utilities
+            </td>
+            <td class="expense">
+                (<%= '%.2f' % @utilities %>) 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+            <td class="expense">
+                Housing: 
+            </td>
+            <td class="expense">
+                (<%= '%.2f' % @housing %>)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+            <td class="expense">
+                Food: 
+            </td>
+            <td class="expense">
+                (<%= '%.2f' % @food %>)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+            <td class="expense">
+                Entertainment: 
+            </td>
+            <td class="expense">
+                (<%= '%.2f' % @entertainment %>)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+            <td class="expense">
+                Savings: 
+            </td>
+            <td class="expense">
+                (<%= '%.2f' % @savings %>)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+            <td class="expense">
+                Transportation: 
+            </td>
+            <td class="expense">
+                (<%= '%.2f' % @transportation %>)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+            <td class="expense">
+                Debt: 
+            </td>
+            <td class="expense">
+                (<%= '%.2f' % @debt %>)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Total Spent:
+            </td>
+            <td>
+                
+            </td>
+            <td class="expense">
+                <%= '%.2f' % @total_spent %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Remaining:
+            </td>
+            <td>
+                
+            </td>
+            <% if @remaining <= 0 %>
+                <td class="expense">
+                    (<%= '%.2f' % @remaining %>)
+                </td>
+            <% elese %>
+                <td>
+                    <%= '%.2f' % @remaining %>
+                </td>
+            <% end %>
+        </tr>
+    </tbody>
+</table>
+</div>
+
 <p>
     Spent: 
-    <%= '%.2f' % @total_spent %>
+    
 </p>
 <p>
     Remaining:
-    <%= '%.2f' % @remaining %>
 </p>
 <p>
-    Utilities: 
-    <%= '%.2f' % @utilities %>
+    
 </p>
 <p>
-    Housing: 
-    <%= '%.2f' % @housing %>
+    
 </p>
 <p>
-    Food: 
-    <%= '%.2f' % @food %>
 </p>
 <p>
-    Entertainment: 
-    <%= '%.2f' % @entertainment %>
+    
 </p>
 <p>
-    Savings: 
-    <%= '%.2f' % @savings %>
+    
 </p>
 <p>
-    Transportation: 
-    <%= '%.2f' % @transportation %>
+    
 </p>
 <p>
-    Debt: 
-    <%= '%.2f' % @debt %>
+    
 </p>
 <%= link_to 'Back', budget_path(@budget) %>

@@ -35,4 +35,9 @@ body {
   margin-top: 1rem;
 }
 
-@import "sessions"
+.expense {
+  color: red;
+}
+
+@import "sessions";
+@import "transactions";
