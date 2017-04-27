@@ -1,10 +1,12 @@
-<div class="row">
-  <h1>Loot</h1>
+<div class="row NewSection">
+  <div class="col-6">
+    <%= image_tag("loot-logo.png",  size: "140", class: "d-block") %>
+  </div>
   
-  <div id="UserLogout">
+  <div id="UserLogout" class="col-6 align-self-end text-right text-white">
     <% if current_username %>
-      Hi, <%= current_username.username %>!
-      <%= link_to "Log out", logout_path, method: "delete" %>
+      Welcome, <%= current_username.username %>!
+      <%= link_to "Log out", logout_path, method: "delete", class: 'text-warning small' %>
     <% end %>
   </div>
 </div>

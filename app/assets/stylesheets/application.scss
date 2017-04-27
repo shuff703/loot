@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 body {
   background-color: #27ae60;
@@ -31,8 +33,9 @@ body {
     border-color: #2ecc71;
 }
 
-.row {
+.NewSection {
   margin-top: 1rem;
 }
 
-@import "sessions"
+@import "sessions";
+@import "budgets";

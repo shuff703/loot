@@ -1,14 +1,41 @@
+<%= render '/layouts/header' %>
 
-<h2>Budgets</h2>
-<button id="newBudget"><%= link_to 'New Budget', new_budget_path %></button>
-<table>
-    <% @budgets.each do |budget| %>
-        <tr>
-            <td><%= budget.name %></td>
-            <td><%= link_to 'View', budget_path(budget) %></td>
-            <td><%= link_to 'Edit', edit_budget_path(budget) %></td>
-            <td><%= link_to 'Delete', budget_path(budget), method: :delete, 
-            data: { confirm: 'All budget information will be lost. Are you sure?' }%></td>
-        </tr>
-    <% end %>
-</table>
+<div class="row NewSection">
+    <div class="col card">
+        <div class="card-block">
+            <div class="row">
+                <h2>Budgets</h2>
+            </div>
+            
+            <div class="row">
+                <%= link_to 'New Budget', new_budget_path, class: 'btn btn-primary btn-sm' %>
+            </div>
+            
+            <div class="row TableRow">
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>View</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @budgets.each do |budget| %>
+                            <tr>
+                                <td scope="row"><%= budget.name %></td>
+                                <td><%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, budget_path(budget), class: 'text-muted' %></td>
+                                <td><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_budget_path(budget), class: 'text-muted' %></td>
+                                <td><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, budget_path(budget), class: 'text-danger', method: :delete, 
+                                            data: { confirm: 'All budget information will be lost. Are you sure?' }%></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%= render '/layouts/footer' %>

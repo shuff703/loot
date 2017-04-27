@@ -52,6 +52,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
+# Use Font Awesome
+gem 'font-awesome-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
