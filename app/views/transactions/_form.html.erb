@@ -1,29 +1,33 @@
 <%= form_for([@budget, @transaction]) do |f| %>
-    <p>
-        <%= f.label :recipient %><br>
-        <%= f.text_field :recipient %>
-    </p>
-    <p>
-        <%= f.label :amount %><br>
-        <%= f.text_area :amount %>
-    </p>
-    <p>
-        <%= f.label :category %><br>
-        <%= f.select :category, selected: :category do |s|%>
-            <%= Loot::CATEGORIES.each do |category| %>
-                <% if category == @transaction.category %>
-                    <%= content_tag :option, category.titleize, value: category, selected: @transaction.category %>
-                <% else %>
-                    <%= content_tag :option, category.titleize, value: category %>
-                <% end %>
-            <% end %>
+  <div class="form-group">
+    <%= f.label :recipient %>
+    <%= f.text_field :recipient, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :amount %>
+    <%= f.number_field :amount, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :category %>
+    <%= f.select :category, { selected: :category }, {}, { :class => "form-control" } do |s| %>
+      <%= Loot::CATEGORIES.each do |category| %>
+        <% if category == @transaction.category %>
+            <%= content_tag :option, category.titleize, value: category, selected: @transaction.category %>
+        <% else %>
+            <%= content_tag :option, category.titleize, value: category %>
         <% end %>
-    </p>
-    <p>
-        <%= f.label :date %><br>
-        <%= f.date_field :date %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date %>
+    <%= f.date_field :date, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Create Transaction", class: "btn btn-primary btn-sm" %>
+  <%= link_to 'Back', budgets_path(@budget), class: "btn btn-outline-primary btn-sm" %>
+
 <% end %>
