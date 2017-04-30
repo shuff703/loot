@@ -75,9 +75,10 @@ class BudgetsController < ApplicationController
         
         @transactions = @budget.transactions.reverse
         @all_transactions = @transactions.sort_by &:date
-        unless @transactions.empty?
-            @transactions = @transactions[1..10].sort_by &:date
+        unless @budget.transactions.empty?
+            @transactions = @transactions.first(10).sort_by &:date
         end
+        byebug
     end
     
     def destroy
