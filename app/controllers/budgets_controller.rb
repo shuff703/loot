@@ -70,6 +70,7 @@ class BudgetsController < ApplicationController
         @transportation + @debt
         
         @remaining = @budget.limit - @total_spent
+
         @transactions = Transaction.where(:budget_id => @budget.id).limit(10).sort_by &:date
         @transactions.reverse!
     end
