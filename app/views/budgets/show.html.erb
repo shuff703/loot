@@ -3,7 +3,9 @@
 <div class='row align-items-center NewSection'>
     <div class="col card text-center">
         <h1 class='TopBottomMargin'><%= @budget.name %></h1>
-        <%= pie_chart @budget.transactions.group(:category).sum(:amount) %>
+        <% unless @budget.transactions.empty? %>
+            <%= pie_chart @budget.transactions.group(:category).sum(:amount) %>
+        <% end %>
     </div>
 </div>
 <div class='row NewSection'>
