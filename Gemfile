@@ -51,10 +51,17 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
+<<<<<<< HEAD
 
 # Use Font Awesome
 gem 'font-awesome-sass'
 
+=======
+#chartkick for data representation
+gem 'chartkick', '~> 1.2.4'
+gem 'dateslices', '~> 0.0.3'
+gem 'active_median', '~> 0.1.0'
+>>>>>>> chart_functionality
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

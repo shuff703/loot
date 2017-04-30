@@ -31,6 +31,10 @@
         </tr>
     <% end %>
 </table>
+
+<%= pie_chart @budget.transactions.group(:category).sum(:amount) %>
+
+
 <p>
     Spent: 
     <%= '%.2f' % @total_spent %>

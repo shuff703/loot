@@ -37,5 +37,14 @@ body {
   margin-top: 1rem;
 }
 
+<<<<<<< HEAD
 @import "sessions";
 @import "budgets";
+=======
+.expense {
+  color: red;
+}
+
+@import "sessions";
+@import "transactions";
+>>>>>>> chart_functionality

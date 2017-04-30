@@ -46,9 +46,10 @@ class BudgetsController < ApplicationController
         @debt = 0
         
         @budget = Budget.find(params[:id])
-        @transactions = Transaction.where(:budget_id => @budget.id)
-
-        @transactions.each do |transaction|
+        
+        @chart_data = Hash.new
+        
+        @budget.transactions.each do |transaction|
             case transaction.category
             when Loot::CATEGORIES.fetch(0)
                 @utilities += transaction.amount
@@ -65,14 +66,16 @@ class BudgetsController < ApplicationController
             when Loot::CATEGORIES.fetch(6)
                 @debt += transaction.amount
             end
+            @chart_data[transaction.id] = {transaction.category => {transaction.date => transaction.amount}}
         end
         @total_spent = @utilities + @food + @housing + @entertainment + @savings +
         @transportation + @debt
         
         @remaining = @budget.limit - @total_spent
-
-        @transactions = Transaction.where(:budget_id => @budget.id).limit(10).sort_by &:date
-        @transactions.reverse!
+        
+        @transactions = @budget.transactions.reverse
+        @all_transactions = @transactions.sort_by &:date
+        @transactions = @transactions[1..10].sort_by &:date
     end
     
     def destroy
@@ -89,8 +92,4 @@ private
         params.require(:budget).permit(:name, :limit)
     end
 
-private
-    def categories
-        
-    end
 
