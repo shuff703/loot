@@ -37,5 +37,10 @@ body {
   margin-top: 1rem;
 }
 
+.expense {
+  color: red;
+}
+
 @import "sessions";
+@import "transactions";
 @import "budgets";
