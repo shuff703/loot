@@ -1,72 +1,92 @@
-<h2><%= @budget.name %></h2>
-<button id="newTransaction"><%= link_to 'Add Transaction', new_budget_transaction_path(@budget) %></button>
-<table>
-    <tr>
-        <th>
-            Recipient
-        </th>
-        <th>
-            Amount
-        </th>
-        <th>
-            Category
-        </th>
-        <th>
-            Date
-        </th>
-        <th colspan="3">
-            Actions
-        </th>
-    </tr>
-    <% @transactions.each do |transaction| %>
-        <tr>
-            <td><%= transaction.recipient %></td>
-            <td><%= transaction.amount %></td>
-            <td><%= transaction.category.titleize %></td>
-            <td><%= transaction.date %></td>
-            <td><%= link_to 'View', budget_transaction_path(@budget, transaction) %></td>
-            <td><%= link_to 'Edit', edit_budget_transaction_path(@budget, transaction) %></td>
-            <td><%= link_to 'Delete', budget_transaction_path(@budget, transaction), method: :delete, 
-                data: { confirm: 'All budget information will be lost. Are you sure?' }%></td>
-        </tr>
-    <% end %>
-</table>
-<p>
-    Spent: 
-    <%= '%.2f' % @total_spent %>
-</p>
-<p>
-    Remaining:
-    <%= '%.2f' % @remaining %>
-</p>
-<p>
-    Utilities: 
-    <%= '%.2f' % @utilities %>
-</p>
-<p>
-    Housing: 
-    <%= '%.2f' % @housing %>
-</p>
-<p>
-    Food: 
-    <%= '%.2f' % @food %>
-</p>
-<p>
-    Entertainment: 
-    <%= '%.2f' % @entertainment %>
-</p>
-<p>
-    Savings: 
-    <%= '%.2f' % @savings %>
-</p>
-<p>
-    Transportation: 
-    <%= '%.2f' % @transportation %>
-</p>
-<p>
-    Debt: 
-    <%= '%.2f' % @debt %>
-</p>
-
-<%= link_to 'View All Transactions', budget_transactions_path(@budget) %>
-
+<%= render 'layouts/header' %>
+<div class='row align-items-center NewSection'>
+    <div class="col card text-center">
+        <h2 class='TopBottomMargin'><%= @budget.name %></h2>
+    </div>
+</div>
+<div class='row NewSection'>
+    <div class="col-9">
+        <div class="col card">
+            <div class="card-block">
+                <div class="row">
+                    <%= link_to 'Add Transaction', new_budget_transaction_path(@budget), class: 'btn btn-primary btn-sm' %>
+                </div>
+                <div class="row TableRow">
+                    <table class="table table-sm table-striped">
+                        <thead>
+                            <tr>
+                                <th>Recipient</th>
+                                <th>Amount</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <% @transactions.each do |transaction| %>
+                            <tr>
+                                <td scope='row'><%= transaction.recipient %></td>
+                                <td><%= '$%.2f' % transaction.amount %></td>
+                                <td><%= transaction.category.titleize %></td>
+                                <td><%= transaction.date %></td>
+                                <td>
+                                    <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, budget_transaction_path(@budget, transaction), class: 'text-muted' %>&nbsp;
+                                    <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_budget_transaction_path(@budget, transaction), class: 'text-muted' %>&nbsp;
+                                    <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, budget_transaction_path(@budget, transaction), class: 'text-danger', method: :delete, 
+                                        data: { confirm: 'All budget information will be lost. Are you sure?' }%>
+                                </td>
+                            </tr>
+                        <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-3">
+        <div class="col card">
+            <div class="card-block">
+                <p>
+                    Total Spent:<br />
+                    <%= '$%.2f' % @total_spent %>
+                </p>
+                <p>
+                    Remaining:<br />
+                    <%= '$%.2f' % @remaining %>
+                </p>
+                <p>
+                    Utilities:<br />
+                    <%= '$%.2f' % @utilities %>
+                </p>
+                <p>
+                    Housing:<br />
+                    <%= '$%.2f' % @housing %>
+                </p>
+                <p>
+                    Food:<br />
+                    <%= '$%.2f' % @food %>
+                </p>
+                <p>
+                    Entertainment:<br />
+                    <%= '$%.2f' % @entertainment %>
+                </p>
+                <p>
+                    Savings:<br />
+                    <%= '$%.2f' % @savings %>
+                </p>
+                <p>
+                    Transportation:<br />
+                    <%= '$%.2f' % @transportation %>
+                </p>
+                <p>
+                    Debt:<br />
+                    <%= '$%.2f' % @debt %>
+                </p>
+                
+                <%= link_to 'View All Transactions', budget_transactions_path(@budget), class: 'btn btn-warning btn-sm' %>
+            </div>
+        </div>
+    </div>
+</div>
+<%= render 'layouts/footer' %>
