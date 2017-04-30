@@ -78,7 +78,6 @@ class BudgetsController < ApplicationController
         unless @budget.transactions.empty?
             @transactions = @transactions.first(10).sort_by &:date
         end
-        byebug
     end
     
     def destroy
