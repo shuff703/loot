@@ -1,5 +1,13 @@
-<h1>Edit Budget</h1>
+<%= render 'layouts/header' %>
 
-<%= render 'form' %>
- 
-<%= link_to 'Back', budgets_path %>
+<div class="row NewSection">
+  <div class="col card">
+    <div class="card-block">
+      <h1>Edit Budget</h1>
+      
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>
+
+<%= render 'layouts/footer' %>
