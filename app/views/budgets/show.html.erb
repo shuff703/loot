@@ -32,7 +32,7 @@
                                 <td scope='row'><%= transaction.recipient %></td>
                                 <td><%= '$%.2f' % transaction.amount %></td>
                                 <td><%= transaction.category.titleize %></td>
-                                <td><%= transaction.date %></td>
+                                <td><%= transaction.date.to_datetime.strftime('%m/%d/%Y') %></td>
                                 <td>
                                     <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, budget_transaction_path(@budget, transaction), class: 'text-muted' %>&nbsp;
                                     <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_budget_transaction_path(@budget, transaction), class: 'text-muted' %>&nbsp;
@@ -51,13 +51,17 @@
     <div class="col-3">
         <div class="col card">
             <div class="card-block">
-                <p>
+                <p title="total_spent">
                     Total Spent:<br />
-                    <%= '$%.2f' % @total_spent %>
+                    <span>
+                        $<span class="amount"><%= '%.2f' % @total_spent %></span>
+                    </span>
                 </p>
-                <p>
+                <p title = "remaining">
                     Remaining:<br />
-                    <%= '$%.2f' % @remaining %>
+                    <span>
+                        $<span class="amount"><%= '%.2f' % @remaining %></span>
+                    </span>
                 </p>
                 <p>
                     Utilities:<br />
@@ -93,5 +97,17 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var remaining = $('p[title="remaining"] span.amount').html();
+    var total_spent = $('p[title="total_spent"] span.amount').html();
+    var warning = parseFloat(remaining)/parseFloat(remaining + total_spent) <= .1;
+    if(remaining < 0){
+        $('p[title="remaining"] span').css('color', 'red');
+    }
+    else if(warning < .1){
+        $('p[title="remaining"] span').css('color', 'orange');
+    }
+</script>
+
 
 <%= render 'layouts/footer' %>

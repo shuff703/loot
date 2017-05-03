@@ -64,6 +64,7 @@ class TransactionsController < ApplicationController
         @transaction.category[0].capitalize!
     end
     def update
+        @budget = Budget.find(params[:budget_id])
         @transaction = Transaction.find(params[:id])
         transaction_params[:category].downcase!
         if @transaction.update(transaction_params)

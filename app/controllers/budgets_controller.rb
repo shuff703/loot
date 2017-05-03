@@ -47,8 +47,6 @@ class BudgetsController < ApplicationController
         
         @budget = Budget.find(params[:id])
         
-        @chart_data = Hash.new
-        
         @budget.transactions.each do |transaction|
             case transaction.category
             when Loot::CATEGORIES.fetch(0)
@@ -66,17 +64,16 @@ class BudgetsController < ApplicationController
             when Loot::CATEGORIES.fetch(6)
                 @debt += transaction.amount
             end
-            @chart_data[transaction.id] = {transaction.category => {transaction.date => transaction.amount}}
         end
         @total_spent = @utilities + @food + @housing + @entertainment + @savings +
         @transportation + @debt
         
         @remaining = @budget.limit - @total_spent
         
-        @transactions = @budget.transactions.reverse
+        @transactions = @budget.transactions
         @all_transactions = @transactions.sort_by &:date
         unless @budget.transactions.empty?
-            @transactions = @transactions.first(10).sort_by &:date
+            @transactions = @transactions.first(10).sort_by(&:date).reverse
         end
     end
     
