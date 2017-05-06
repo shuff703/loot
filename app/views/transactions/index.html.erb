@@ -1,179 +1,94 @@
-<h2>All Transacitons</h2>
-<table>
-    <th>
-        <td>
-            Recipient
-        </td>
-        <td>
-            Amount
-        </td>
-        <td>
-            Category
-        </td>
-        <td>
-            Date
-        </td>
-    </th>
-    <% @transactions.reverse.each do |transaction| %>
-        <tr>
-            <td><%= transaction.recipient %></td>
-            <td><%= transaction.amount %></td>
-            <td><%= transaction.category.titleize %></td>
-            <td><%= transaction.date %></td>
-            <td><%= link_to 'View', budget_transaction_path(@budget, transaction) %></td>
-            <td><%= link_to 'Edit', edit_budget_transaction_path(@budget, transaction) %></td>
-            <td><%= link_to 'Delete', budget_transaction_path(@budget, transaction), method: :delete, 
-                data: { confirm: 'All Transaction information will be lost. Are you sure?' }%></td>
-        </tr>
-    <% end %>
-</table>
-<div id="ledger">
-    <table class="table-sm">
-    <thead></thead>
-    <tbody>
-        <tr>
-            <td>
-                Limit: 
-            </td>
-            <td></td>
-            <td>
-                <%= @budget.limit %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                
-            </td>
-            <td class="expense">
-               Less: Utilities
-            </td>
-            <td class="expense">
-                (<%= '%.2f' % @utilities %>) 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                
-            </td>
-            <td class="expense">
-                Housing: 
-            </td>
-            <td class="expense">
-                (<%= '%.2f' % @housing %>)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                
-            </td>
-            <td class="expense">
-                Food: 
-            </td>
-            <td class="expense">
-                (<%= '%.2f' % @food %>)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                
-            </td>
-            <td class="expense">
-                Entertainment: 
-            </td>
-            <td class="expense">
-                (<%= '%.2f' % @entertainment %>)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                
-            </td>
-            <td class="expense">
-                Savings: 
-            </td>
-            <td class="expense">
-                (<%= '%.2f' % @savings %>)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                
-            </td>
-            <td class="expense">
-                Transportation: 
-            </td>
-            <td class="expense">
-                (<%= '%.2f' % @transportation %>)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                
-            </td>
-            <td class="expense">
-                Debt: 
-            </td>
-            <td class="expense">
-                (<%= '%.2f' % @debt %>)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Total Spent:
-            </td>
-            <td>
-                
-            </td>
-            <td class="expense">
-                <%= '%.2f' % @total_spent %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Remaining:
-            </td>
-            <td>
-                
-            </td>
-            <% if @remaining <= 0 %>
-                <td class="expense">
-                    (<%= '%.2f' % @remaining %>)
-                </td>
-            <% elese %>
-                <td>
-                    <%= '%.2f' % @remaining %>
-                </td>
-            <% end %>
-        </tr>
-    </tbody>
-</table>
-</div>
+<%= render 'layouts/header' %>
 
-<p>
-    Spent: 
-    
-</p>
-<p>
-    Remaining:
-</p>
-<p>
-    
-</p>
-<p>
-    
-</p>
-<p>
-</p>
-<p>
-    
-</p>
-<p>
-    
-</p>
-<p>
-    
-</p>
-<p>
-    
-</p>
-<%= link_to 'Back', budget_path(@budget) %>
+<div class='row align-items-center NewSection'>
+  <div class="col card text-center">
+    <h1 class="TopBottomMargin2">All <%= @budget.name %> Transactions</h1>
+  </div>
+</div>
+<div class='row NewSection'>
+  <div class="col-9">
+    <div class="col card">
+      <div class="card-block">
+        <div class="row">
+          <%= link_to 'Add Transaction', new_budget_transaction_path(@budget), class: 'btn btn-primary btn-sm' %>
+          &nbsp;<%= link_to 'Back', budget_path(@budget), class: 'btn btn-outline-primary btn-sm' %>
+        </div>
+        
+        <div class="row TableRow">
+          <table class="table table-sm table-striped">
+            <tr>
+              <th>Recipient</th>
+              <th>Amount</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+            
+            <% @transactions.reverse.each do |transaction| %>
+              <tr>
+                <td><%= transaction.recipient %></td>
+                <td><%= '$%.2f' % transaction.amount %></td>
+                <td><%= transaction.category.titleize %></td>
+                <td><%= transaction.date %></td>
+                <td>
+                  <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, budget_transaction_path(@budget, transaction), class: 'text-muted' %>&nbsp;
+                  <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_budget_transaction_path(@budget, transaction), class: 'text-muted' %>&nbsp;
+                  <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, budget_transaction_path(@budget, transaction), class: 'text-danger', method: :delete, 
+                      data: { confirm: 'All budget information will be lost. Are you sure?' } %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col card">
+      <div class="card-block">
+        <p>
+          Utilities:<br />
+          <%= '$%.2f' % @utilities %>
+        </p>
+        
+        <p>
+          Housing:<br />
+          <%= '$%.2f' % @housing %>
+        </p>
+        
+        <p>
+          Food:<br />
+          <%= '$%.2f' % @food %>
+        </p>
+        
+        <p>
+          Entertainment:<br />
+          <%= '$%.2f' % @entertainment %>
+        </p>
+        
+        <p>
+          Savings:<br />
+          <%= '$%.2f' % @savings %>
+        </p>
+        
+        <p>
+          Transportation:<br />
+          <%= '$%.2f' % @transportation %>
+        </p>
+        
+        <p>
+          Debt:<br />
+          <%= '$%.2f' % @debt %>
+        </p>
+        
+        <p><strong>
+          Total Spent:<br />
+          <%= '$%.2f' % @total_spent %>
+        </p></strong>
+      </div>
+    </div>
+  </div>
+
+
+<%= render 'layouts/footer' %>
