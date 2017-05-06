@@ -1,20 +1,36 @@
-<h2>Transaction</h2>
-<p>
-    <h3>Recipient</h3>
-    <%= @transaction.recipient %>
-</p>
-<p>
-    <h3>Amount</h3>
-    <%= @transaction.amount %>
-</p>
-<p>
-    <h3>Category</h3>
-    <%= @transaction.category.titleize %>
-</p>
-<p>
-    <h3>Date</h3>
-    <%= @transaction.date %>
-</p>
-<p>
-    <%= link_to 'Budget Home', budget_path(@budget) %>
-</p>
+<%= render 'layouts/header' %>
+
+<div class="row NewSection">
+  <div class="col card">
+    <div class="card-block">
+      <h2>
+        Transaction
+        &nbsp;<small><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_budget_transaction_path(@budget, @transaction), class: 'text-muted' %></small>
+      </h2>
+      
+      
+      <p>
+        <strong>Recipient:</strong><br />
+        <%= @transaction.recipient %>
+      </p>
+      <p>
+        <strong>Amount:</strong><br />
+        <%= @transaction.amount %>
+      </p>
+      <p>
+        <strong>Category:</strong><br />
+        <%= @transaction.category.titleize %>
+      </p>
+      <p>
+        <strong>Date:</strong><br />
+        <%= @transaction.date %>
+      </p>
+      <p>
+        <%= link_to 'Budget Home', budget_path(@budget), class: "btn btn-primary btn-sm" %>
+        <%= link_to 'All Transactions', budget_transactions_path(@budget), class: "btn btn-primary btn-sm" %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<%= render 'layouts/footer' %>
