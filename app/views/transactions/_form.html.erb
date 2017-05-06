@@ -1,4 +1,14 @@
 <%= form_for([@budget, @transaction]) do |f| %>
+    <% if @transaction.errors.any? %>
+        <div style="color:red;">
+            <h4><%= pluralize(@transaction.errors.count, "Error") %></h4>
+            <ul>
+                <% @transaction.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
   <div class="form-group">
     <%= f.label :recipient %>
     <%= f.text_field :recipient, class: "form-control" %>

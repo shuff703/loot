@@ -1,5 +1,18 @@
 <%= form_for @budget do |f| %>
 
+  <% if @budget.errors.any? %>
+    <div style="color:red;">
+      <h4>
+        <%= pluralize(@budget.errors.count, "Error") %>
+      </h4>
+      <ul>
+        <% @budget.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="col-4 form-group BudgetFormGroup">
     <%= f.label :name %><br>
     <%= f.text_field :name, class: "form-control" %>

@@ -8,8 +8,12 @@ class TransactionsController < ApplicationController
     def create
         @budget = Budget.find(params[:budget_id])
         params[:transaction][:category].downcase!
-        @budget.transactions.create(transaction_params)
-        redirect_to @budget
+        @transaction = @budget.transactions.create(transaction_params)
+        unless @transaction.created_at == nil
+            redirect_to @budget
+        else
+            render 'new'
+        end
     end
     
     def index
