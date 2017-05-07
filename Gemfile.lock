@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/jnicklas/capybara.git
+  revision: f36a20ba8d90922e4c6c445743c9a877d3a01130
+  specs:
+    capybara (2.13.0)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -41,6 +53,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
     autoprefixer-rails (6.7.7.2)
       execjs
@@ -59,8 +73,29 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+<<<<<<< HEAD
     dateslices (0.0.4)
       rails (> 4)
+=======
+    cucumber (2.4.0)
+      builder (>= 2.1.2)
+      cucumber-core (~> 1.5.0)
+      cucumber-wire (~> 0.0.1)
+      diff-lcs (>= 1.1.3)
+      gherkin (~> 4.0)
+      multi_json (>= 1.7.5, < 2.0)
+      multi_test (>= 0.1.2)
+    cucumber-core (1.5.0)
+      gherkin (~> 4.0)
+    cucumber-rails (1.4.5)
+      capybara (>= 1.1.2, < 3)
+      cucumber (>= 1.3.8, < 4)
+      mime-types (>= 1.16, < 4)
+      nokogiri (~> 1.5)
+      railties (>= 3, < 5.1)
+    cucumber-wire (0.0.1)
+    database_cleaner (1.5.3)
+>>>>>>> ada6542be240c020e785b3be6049bd2a51de84c1
     debug_inspector (0.0.2)
     devise (4.2.1)
       bcrypt (~> 3.0)
@@ -68,11 +103,16 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.3)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+<<<<<<< HEAD
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+=======
+    gherkin (4.1.1)
+>>>>>>> ada6542be240c020e785b3be6049bd2a51de84c1
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.8.1)
@@ -97,10 +137,12 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    multi_test (0.1.2)
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
+    public_suffix (2.0.5)
     puma (3.8.2)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -135,6 +177,23 @@ GEM
       ffi (>= 0.5.0)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
+    rspec-core (3.5.4)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-rails (3.5.2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -175,6 +234,8 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -184,9 +245,17 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap (~> 4.0.0.alpha6)
   byebug
+<<<<<<< HEAD
   chartkick (~> 1.2.4)
   coffee-rails (~> 4.2)
   dateslices (~> 0.0.3)
+=======
+  capybara!
+  coffee-rails (~> 4.2)
+  cucumber
+  cucumber-rails
+  database_cleaner
+>>>>>>> ada6542be240c020e785b3be6049bd2a51de84c1
   devise (~> 4.2, >= 4.2.1)
   font-awesome-sass
   jbuilder (~> 2.5)
@@ -195,6 +264,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.2)
   rails-assets-tether (>= 1.3.3)!
+  rspec-rails
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)

@@ -15,6 +15,7 @@
 
   <div class="col-4 form-group BudgetFormGroup">
     <%= f.label :name %><br>
+<<<<<<< HEAD
     <%= f.text_field :name, class: "form-control" %>
   </div>
     
@@ -25,4 +26,15 @@
     
     <%= f.submit "Create Budget", class: "btn btn-primary btn-sm" %>
     <%= link_to 'Back', budgets_path, class: "btn btn-outline-primary btn-sm" %>
+=======
+    <%= f.text_field :name, :placeholder => "Name" %>
+  </p>
+  <p>
+    <%= f.label :limit %><br>
+    <%= f.number_field :limit, :placeholder => "Limit" %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+>>>>>>> ada6542be240c020e785b3be6049bd2a51de84c1
 <% end %>
