@@ -3,6 +3,7 @@
 <div class='row align-items-center NewSection'>
     <div class="col card text-center">
         <h1 class='TopBottomMargin'><%= @budget.name %></h1>
+        <h2 class='TopBottomMargin2'>Limit: <%= '$%.2f' % @budget.limit %></h2>
         <% unless @budget.transactions.empty? %>
             <%= pie_chart @budget.transactions.group(:category).sum(:amount) %>
         <% end %>
@@ -14,36 +15,43 @@
             <div class="card-block">
                 <div class="row">
                     <%= link_to 'Add Transaction', new_budget_transaction_path(@budget), class: 'btn btn-primary btn-sm' %>
+                    &nbsp;<%= link_to 'Back', budgets_path, class: 'btn btn-outline-warning btn-sm' %>
                 </div>
-                <div class="row TableRow">
-                    <table class="table table-sm table-striped">
-                        <thead>
-                            <tr>
-                                <th>Recipient</th>
-                                <th>Amount</th>
-                                <th>Category</th>
-                                <th>Date</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <% @transactions.each do |transaction| %>
-                            <tr>
-                                <td scope='row'><%= transaction.recipient %></td>
-                                <td><%= '$%.2f' % transaction.amount %></td>
-                                <td><%= transaction.category.titleize %></td>
-                                <td><%= transaction.date.to_datetime.strftime('%m/%d/%Y') %></td>
-                                <td>
-                                    <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, budget_transaction_path(@budget, transaction), class: 'text-muted' %>&nbsp;
-                                    <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_budget_transaction_path(@budget, transaction), class: 'text-muted' %>&nbsp;
-                                    <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, budget_transaction_path(@budget, transaction), class: 'text-danger', method: :delete, 
-                                        data: { confirm: 'All budget information will be lost. Are you sure?' }%>
-                                </td>
-                            </tr>
-                        <% end %>
-                        </tbody>
-                    </table>
-                </div>
+                <% unless @transactions.empty? %>
+                    <div class="row TableRow">
+                        <table class="table table-sm table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Recipient</th>
+                                    <th>Amount</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <% @transactions.each do |transaction| %>
+                                <tr>
+                                    <td scope='row'><%= transaction.recipient %></td>
+                                    <td><%= '$%.2f' % transaction.amount %></td>
+                                    <td><%= transaction.category.titleize %></td>
+                                    <td><%= transaction.date.to_datetime.strftime('%m/%d/%Y') %></td>
+                                    <td>
+                                        <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, budget_transaction_path(@budget, transaction), class: 'text-muted' %>&nbsp;
+                                        <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_budget_transaction_path(@budget, transaction), class: 'text-muted' %>&nbsp;
+                                        <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, budget_transaction_path(@budget, transaction), class: 'text-danger', method: :delete, 
+                                            data: { confirm: 'All budget information will be lost. Are you sure?' }%>
+                                    </td>
+                                </tr>
+                            <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                <% else %>
+                    <div class="row TableRow">
+                        <p>No Transactions</p>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
@@ -100,11 +108,11 @@
 <script type="text/javascript">
     var remaining = $('p[title="remaining"] span.amount').html();
     var total_spent = $('p[title="total_spent"] span.amount').html();
-    var warning = parseFloat(remaining)/parseFloat(remaining + total_spent) <= .1;
+    var warning = parseFloat(remaining)/(parseFloat(remaining) + parseFloat(total_spent));
     if(remaining < 0){
         $('p[title="remaining"] span').css('color', 'red');
     }
-    else if(warning < .1){
+    else if(warning <= .1 && total_spent != 0){
         $('p[title="remaining"] span').css('color', 'orange');
     }
 </script>

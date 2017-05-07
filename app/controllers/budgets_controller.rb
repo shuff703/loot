@@ -5,6 +5,10 @@ class BudgetsController < ApplicationController
     
     def index 
         @budgets = Budget.where(:account_id => session[:account_id])
+        if @budgets.empty?
+            @budget = Budget.new
+            render 'new'
+        end
     end
     
     def new

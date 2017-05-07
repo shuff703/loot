@@ -10,30 +10,35 @@
             <div class="row">
                 <%= link_to 'New Budget', new_budget_path, class: 'btn btn-primary btn-sm' %>
             </div>
-            
-            <div class="row TableRow">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>View</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @budgets.each do |budget| %>
+            <% unless @budgets.empty? %>
+                <div class="row TableRow">
+                    <table class="table table-striped">
+                        <thead>
                             <tr>
-                                <td scope="row"><%= budget.name %></td>
-                                <td><%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, budget_path(budget), class: 'text-muted' %></td>
-                                <td><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_budget_path(budget), class: 'text-muted' %></td>
-                                <td><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, budget_path(budget), class: 'text-danger', method: :delete, 
-                                            data: { confirm: 'All budget information will be lost. Are you sure?' }%></td>
+                                <th>Name</th>
+                                <th>View</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
-                        <% end %>
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                            <% @budgets.each do |budget| %>
+                                <tr>
+                                    <td scope="row"><%= budget.name %></td>
+                                    <td><%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, budget_path(budget), class: 'text-muted' %></td>
+                                    <td><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_budget_path(budget), class: 'text-muted' %></td>
+                                    <td><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, budget_path(budget), class: 'text-danger', method: :delete, 
+                                                data: { confirm: 'All budget information will be lost. Are you sure?' }%></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            <% else %>
+                <div class="row TableRow">
+                    <p>No Budget's to Show</p>
+                </div>
+            <% end %>
         </div>
     </div>
 </div>

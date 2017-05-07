@@ -29,7 +29,7 @@
                 <td><%= transaction.recipient %></td>
                 <td><%= '$%.2f' % transaction.amount %></td>
                 <td><%= transaction.category.titleize %></td>
-                <td><%= transaction.date %></td>
+                <td><%= transaction.date.to_datetime.strftime('%m/%d/%Y') %></td>
                 <td>
                   <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, budget_transaction_path(@budget, transaction), class: 'text-muted' %>&nbsp;
                   <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_budget_transaction_path(@budget, transaction), class: 'text-muted' %>&nbsp;

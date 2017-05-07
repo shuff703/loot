@@ -15,7 +15,7 @@
       </p>
       <p>
         <strong>Amount:</strong><br />
-        <%= @transaction.amount %>
+        <%= '$%.2f' %  @transaction.amount %>
       </p>
       <p>
         <strong>Category:</strong><br />
@@ -23,7 +23,7 @@
       </p>
       <p>
         <strong>Date:</strong><br />
-        <%= @transaction.date %>
+        <%= @transaction.date.to_datetime.strftime('%m/%d/%Y') %>
       </p>
       <p>
         <%= link_to 'Budget Home', budget_path(@budget), class: "btn btn-primary btn-sm" %>
