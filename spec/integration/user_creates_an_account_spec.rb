@@ -13,7 +13,7 @@ feature "User can create an account and log in" do
         fill_in('Username', :with => 'Test')
         fill_in('Password', :with => 'password')
         click_button("Log In")
-        expect(page).to have_content("Budgets")
+        expect(page).to have_content("New Budget")
     end
     
     scenario "User should not be able to log in with incorrect credentials" do
@@ -49,8 +49,6 @@ feature "User should be able to create budgets" do
         fill_in('Username', :with => 'Test')
         fill_in('Password', :with => 'password')
         click_button("Log In")
-        expect(page).to have_content("Budgets")
-        click_link("New Budget")
         expect(page).to have_content("New Budget")
     
         fill_in "Name", :with => 'Budget 2017'
@@ -79,8 +77,6 @@ feature "User should be able to create transactions" do
         fill_in('Username', :with => 'Test')
         fill_in('Password', :with => 'password')
         click_button("Log In")
-        expect(page).to have_content("Budgets")
-        click_link("New Budget")
         expect(page).to have_content("New Budget")
     
         fill_in "Name", :with => 'Budget 2017'
@@ -97,7 +93,7 @@ feature "User should be able to create transactions" do
         fill_in "transaction[recipient]", :with => 'Starbucks'
         fill_in "transaction[amount]", :with => '20.00'
         select "Food", :from => "transaction[category]"
-        fill_in "transaction[date]", :with => '05/07/2017'
+        fill_in "transaction[date]", :with => '05/06/2017'
         
         click_button("Create Transaction")
         
