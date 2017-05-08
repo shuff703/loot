@@ -73,10 +73,6 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
-<<<<<<< HEAD
-    dateslices (0.0.4)
-      rails (> 4)
-=======
     cucumber (2.4.0)
       builder (>= 2.1.2)
       cucumber-core (~> 1.5.0)
@@ -95,7 +91,8 @@ GEM
       railties (>= 3, < 5.1)
     cucumber-wire (0.0.1)
     database_cleaner (1.5.3)
->>>>>>> ada6542be240c020e785b3be6049bd2a51de84c1
+    dateslices (0.0.4)
+      rails (> 4)
     debug_inspector (0.0.2)
     devise (4.2.1)
       bcrypt (~> 3.0)
@@ -107,12 +104,9 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
-<<<<<<< HEAD
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
-=======
     gherkin (4.1.1)
->>>>>>> ada6542be240c020e785b3be6049bd2a51de84c1
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.8.1)
@@ -245,17 +239,13 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap (~> 4.0.0.alpha6)
   byebug
-<<<<<<< HEAD
-  chartkick (~> 1.2.4)
-  coffee-rails (~> 4.2)
-  dateslices (~> 0.0.3)
-=======
   capybara!
+  chartkick (~> 1.2.4)
   coffee-rails (~> 4.2)
   cucumber
   cucumber-rails
   database_cleaner
->>>>>>> ada6542be240c020e785b3be6049bd2a51de84c1
+  dateslices (~> 0.0.3)
   devise (~> 4.2, >= 4.2.1)
   font-awesome-sass
   jbuilder (~> 2.5)

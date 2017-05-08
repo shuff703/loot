@@ -97,11 +97,11 @@ feature "User should be able to create transactions" do
         fill_in "transaction[recipient]", :with => 'Starbucks'
         fill_in "transaction[amount]", :with => '20.00'
         select "Food", :from => "transaction[category]"
-        fill_in "transaction[date]", :with => '04/27/2017'
+        fill_in "transaction[date]", :with => '05/07/2017'
         
         click_button("Create Transaction")
         
-        expect(page).to have_content("Starbucks 20.0")
+        expect(page).to have_content("Starbucks $20.00")
         
     end
     
