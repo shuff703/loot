@@ -75,9 +75,9 @@ class BudgetsController < ApplicationController
         @remaining = @budget.limit - @total_spent
         
         @transactions = @budget.transactions
-        @transactions = @transactions.reverse
+        @transactions = @transactions.sort_by(&:date).reverse
         unless @budget.transactions.empty?
-            @transactions = @transactions.first(10).sort_by(&:date).reverse
+            @transactions = @transactions.first(10)
         end
     end
     
