@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
             session[:account_id] = @account.id
             redirect_to budgets_path
         else
-            redirect_to '/login'
+            redirect_to signup_path
         end
     end
     

@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
             session[:account_id] = @account.id
             redirect_to '/login'
         else
-            redirect_to '/signup'
+            render 'new'
         end
     end
 end
